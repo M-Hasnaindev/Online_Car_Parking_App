@@ -1,38 +1,792 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Teko:wght@300;400;500;600;700&display=swap");
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  color: white;
+  font-family: "Teko", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  transition: 0.3s;
+  text-transform: capitalize;
+  margin-left: 90px;
+}
+
+li:hover {
+  color: purple;
+  cursor: pointer;
+}
+
+li {
+  margin: 15px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+}
+
+/* .bg-hero {
+  background-image: url("./Assest/banner.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 63vh;
+  width: 100%;
+} */
+
+.btn1 {
+  background: #ff1313;
+  border: navajowhite;
+  font-family: "Teko", sans-serif;
+  color: white;
+  width: 170px;
+  height: 53px;
+  margin: 15px;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 0;
+  transition: color 0.4s linear;
+  z-index: 1;
+  font-size: 18px;
+  font-weight: 300;
+  overflow: hidden;
+}
+
+.btn1:hover,
+.btn1:focus {
+  box-shadow: inset 10em 0 0 0 transparent;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+.logo {
+  margin: 20px;
+}
+
+.inner_text {
+  color: white;
+  font-family: "Teko", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  transition: 0.3s;
+  text-transform: capitalize;
+  text-align: left;
+  margin-left: 80px;
+}
+.inner_text h1 {
+  margin: 0px;
+}
+.inner_text p {
+  margin: 0px;
+}
+
+.btn {
+  display: flex;
+  /* margin-left: 80px; */
+  margin-top: 18px;
+  background: aliceblue;
+  width: 22%;
+  height: 44px;
+  text-align: center;
+  align-items: center;
+  border-radius: 9px;
+}
+
+.text {
+  margin-left: 26px;
+}
+
+.icon {
+  width: 20px;
+  background: green;
+  height: 20px;
+  border-radius: 10px;
+  color: white;
+  margin-left: 9px;
+}
+
+h1 {
+  font-family: "Teko", sans-serif;
+  font-size: 50px;
+  margin: 0px;
+}
+
+.page {
+  background: aliceblue;
+  height: 40vh;
+  border: 1px solid #7023b8;
+  width: 90%;
+  text-align: center;
+  margin-left: 50px;
+  box-shadow: -5px 4px 12px -1px rgba(0, 0, 0, 0.58);
+}
+
+.buttons {
+  padding: 35px;
+}
+
+button.edit {
+  width: 93px;
+  height: 38px;
+  border-radius: 7px;
+  border: none;
+  background: #7023b8;
+  color: white;
+  font-family: "Teko", sans-serif;
+  font-size: 21px;
+  margin-right: 7px;
+  cursor: pointer;
+  box-shadow: 2px 3px 21px -7px rgba(0, 0, 0, 0.58);
+}
+
+button.logout:hover {
+  background-color: red;
+  color: white;
+  transition: ease-in 0.1s;
+}
+
+button.logout {
+  width: 93px;
+  height: 38px;
+  border-radius: 7px;
+  border: none;
+  border: 1px solid red;
+  color: red;
+  font-family: "Teko", sans-serif;
+  font-size: 21px;
+  cursor: pointer;
+  background-color: white;
+  box-shadow: 2px 3px 21px -7px rgba(0, 0, 0, 0.58);
+}
+
+.top_section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.heading {
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.section_1 {
+  display: flex;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.student {
+  font-size: 110px;
+  margin-left: 5px;
+  color: #7023b8;
+}
+
+hr.hr {
+  width: 1px;
+  height: 213px;
+}
+
+/* .thing {
+  text-align: left;
+  position: relative;
+  right: 219px;
+} */
+
+.icones {
+  margin-left: 2px;
+  cursor: pointer;
+}
+
+.icons {
+  display: flex;
+}
+
+.page_2 {
+  background: aliceblue;
+  height: 10vh;
+  border: 1px solid #7023b8;
+  width: 90%;
+  text-align: center;
+  margin-left: 50px;
+  box-shadow: -5px 4px 12px -1px rgba(0, 0, 0, 0.58);
+  margin-top: 50px;
+}
+
+hr.small {
+  margin: 14px;
+  border: 1px solid #7023b8;
+}
+
+.link_1 {
+  cursor: pointer;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+}
+
+.page_3 {
+  background: #7023b8;
+  height: 126vh;
+  border: 1px solid purple;
+  width: 90%;
+  text-align: center;
+  margin-left: 50px;
+  box-shadow: -5px 4px 12px -1px rgba(0, 0, 0, 0.58);
+  margin-top: 50px;
+  overflow-y: scroll;
+}
+
+.page_4 {
+  background: #7023b8;
+  height: 250vh;
+  border: 1px solid purple;
+  width: 80%;
+  text-align: center;
+  margin-left: 130px;
+  box-shadow: -5px 4px 12px -1px rgba(0, 0, 0, 0.58);
+  margin-top: 50px;
+}
+
+.thing {
+  font-family: "Teko", sans-serif;
+  margin: 0px;
+  font-size: 18px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+  font-family: "Teko", sans-serif;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+.form-group button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+}
+
+.form-group button:hover {
+  background-color: #45a049;
+}
+
+.cv {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+
+.btn {
+  font-size: 14px !important;
+}
+
+.btn {
+  font-size: 14px !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase!important;
+}
+
+.mb-3, .my-3 {
+  margin-bottom: 1rem!important;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  background-color: transparent;
+  background-image: none;
+  border-color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-border{
+  border: 1px solid #dc3545;
+}
+
+.cv_section{
+  font-family: "Teko", sans-serif;
+  font-size: 2rem;
+}
+
+.signup_heading{
+  text-align: center;
+}
+
+.first_step{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+button.form_btn {
+  width: 130px;
+  margin: 15px;
+  height: 44px;
+  border: 1px solid purple;
+  color: purple;
+  font-size: 26px;
+  background: white;
+  border-radius: 6px;
+  font-family: "Teko", sans-serif;
+}
+
+button.form_btn:hover {
+  color: white;
+  background-color: #7023b8;
+  border-color: #aa60f0;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  cursor: pointer;
+  
+}
+
+.second_step{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.sign {
+  width: 28%;
+  margin: 17px;
+  font-family: "Teko", sans-serif;  
+}
+
+.sign input {
+  height: 36px;
+  width: 291px;
+  border: 1px solid purple;
+  border-radius: 4px;
+}
+
+.sign label{
+  font-family: "Teko", sans-serif;
+}
+
+button.submit {
+  width: 186px;
+  height: 38px;
+  border: 1px solid purple;
+  background: white;
+  color: purple;
+  font-size: 25px;
+  font-family: "Teko", sans-serif;
+  margin-top: 23px;
+  text-align: center;
+  margin-left: 56px;
+  cursor: pointer;
+}
+
+button.submit:hover{
+  color: white;
+  background: purple;
+}
+
+.third_step{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.student_data{
+  /* display: flex; */
+}
+
+.applied_data{
+  display: none;
+}
+
+.job_data{
+  display: none;
+}
+
+.applied_job{
+  display: block;
+}
+
+.data_here{
+  font-family: "Teko", sans-serif;
+  font-size: 25px;
+}
+
+.company_data{
+  display: flex;
+}
+
+.companies{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  /* justify-content: center; */
+}
+
+.company_founded span{
+  font-weight: 200;
+  font-size: 25px;
+  font-family: 'Courier New', Courier, monospace;
+}
+.company_location span{
+  font-weight: 200;
+  font-size: 25px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.company {
+  cursor: pointer;
+  /* width: 50%; */
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.company:hover{
+  border: 1px solid purple;
+  border-radius: 20px;
+  transition: ease-in 0.2;
+}
+
+.student__cv__data__here {
+  color: black;
+  cursor: pointer;
+  margin: 30px;
+  margin-bottom: 30px;
+  /* border: 1px solid black; */
+  width: 106%;
+  height: 27vh;
+}
+
+.student__cv__data__here:hover{
+  border: 1px solid black;
+}
+
+ul.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-left: 0px;
+  padding: 0px;
+  margin-right: 105px;
+}
+
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+::-webkit-scrollbar-track {
+  background: purple; 
+}
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+button.now {
+  width: 124px;
+  border: 1px solid purple;
+  background: #7023b8;
+  border-radius: 11px;
+  cursor: pointer;
+  font-family: "Teko", sans-serif;
+  font-size: 20px;
+}
+
+.dowanload_now {
+  display: flex;
+  justify-content: center;
+  height: 44px;
+}
+
+svg.D_BTN {
+  width: 28px;
+  margin: -1px;
+}
+
+.job {
+  cursor: pointer;
+  font-family: "Teko", sans-serif;
+}
+
+.container{
+  display: grid;
+  grid-template-columns: auto auto auto; 
+}
+.boxes_container{
+  display: grid;
+  grid-template-columns: auto; 
+}
+
+.job h3{
+  font-size: 25px;
+}
+
+.job p{
+  font-size: 20px;
+}
+
+
+.applyed_now{
+  display: flex;
+    justify-content: center;
+    height: 44px;
+}
+
+.applyingo{
+  width: 124px;
+  border: 1px solid purple;
+  background: #7023b8;
+  border-radius: 11px;
+  cursor: pointer;
+  font-family: "Teko", sans-serif;
+  font-size: 20px;
+}
+
+.cv{
+  font-family: "Teko", sans-serif;
+  font-size: 18px;
+}
+
+.open_modal{
+  background-color: black;
+  color: white;
+  width: 50%;
+  height: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.noo {
+  width: 81px;
+  height: 40px;
+  border: 1px solid red;
+  background: #f56363;
+  font-family: "Teko", sans-serif;
+  font-size: 27px;
+}
+
+button.yeses {
+  width: 81px;
+  height: 40px;
+  background: lightgreen;
+  border: 1px solid green;
+  font-family: "Teko", sans-serif;
+  font-size: 27px;
+}
+
+.yes {
+  margin: 0px;
+  padding-right: 33px;
+}
+
+.yesorno {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.open_modal {
+  background-color: white;
+  color: black;
+  width: 50%;
+  height: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px -1px 30px -3px rgba(0,0,0,0.94);
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10% 0%;
+  height: 420px;
+}
+
+.form_image{
+  width: 100%;
+}
+.main_banner_img{
+    width: 100%;
+}
+
+/* .loader{
+  display: none;
+} */
+
+.image_right {
+  width: 50%;
+}
+
+.left_buttons {
+  width: 50%;
+}
+
+.left_form{
+  width: 50%;
+}
+
+.container_div{
+  background-image: url('./Assest/patreen.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200vh;
+  width: 100%;
+  cursor: pointer;
+}
+
+.boxeses{
+  background: red;
+  width: 14%;
+  height: 185px;
+}
+
+
+.each_boxes {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+img.formBannerImg {
+  width: 100%;
+  margin: 0px;
+}
+
+.main-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: aliceblue;
+  width: 50%;
+  margin-left: 25%;
+  height: 120vh;
 }
 
-.App-link {
-  color: #61dafb;
+ul.menu {
+  color: black;
+  margin-left: 0px;
+  margin-right: 42px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.heading_book_slot {
+  font-family: "Teko", sans-serif;
+  font-size: 36px;
+  text-align: center;
 }
+
+h2.book_slot {
+  margin-top: 10px;
+}
+
+.fotter_fields_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MuiStack-root.css-4jnixx-MuiStack-root {
+  margin-left: 25px;
+}
+
+button.slot {
+  width: 200px;
+  height: 53px;
+  font-family: "Teko", sans-serif;
+  font-size: 39px;
+  border: 1px solid purple;
+  color: purple;
+  border-radius: 7px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.select_slot_button {
+  text-align: center;
+} 

@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes , Route } from 'react-router-dom';
+import Signup from './signup'
+import Login from './login'
+import Home from './home'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Admindashboard from './admindashboard';
+import { Helmet } from 'react-helmet';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Signup/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/home' element={<Home/>}/>
+          <Route path='/admin-dsahboard' element={<Admindashboard/>}/>
+        </Routes>
+      </Router>
+      <ToastContainer theme='dark'/>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
+      </Helmet>
+    </>
   );
 }
 
