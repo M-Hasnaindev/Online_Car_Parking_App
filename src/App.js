@@ -18,7 +18,7 @@ function App() {
           <Route path='/' element={<Signup/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/home' element={<Home/>}/>
-          <Route path='/admin-dsahboard' element={<Admindashboard/>}/>
+          <Route path='/admin-dashboard' element={<Admindashboard/>}/>
         </Routes>
       </Router>
       <ToastContainer theme='dark'/>
