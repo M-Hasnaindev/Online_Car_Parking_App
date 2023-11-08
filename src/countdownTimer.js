@@ -9,7 +9,6 @@ function CountdownTimer({ duration, onTimerEnd }) {
         setTimeLeft(timeLeft - 1);
       } else {
         clearInterval(timer);
-        // onTimerEnd();
       }
     }, 1000);
 

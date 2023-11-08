@@ -62,7 +62,7 @@ function AdminDashboard() {
         </thead>
         <tbody>
         {bookings.map((booking, index) => (
-            <tr key={booking.id}>
+            <tr   >
               <td>{booking.slot}</td>
               <td>{booking.startDate}</td>
               <td>{booking.endDate}</td>

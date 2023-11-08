@@ -3,13 +3,13 @@ import { DatePicker, Space } from "antd";
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, onValue } from "firebase/database";
 import form_banner from "./Assest/formBannner.png";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+// import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const firebaseConfig = {
- apiKey: "AIzaSyAxvXXJk9oEXw-I8KcpncKowPLqs9V5KpE",
+  apiKey: "AIzaSyAxvXXJk9oEXw-I8KcpncKowPLqs9V5KpE",
   authDomain: "car-parking-app-auth0-host.firebaseapp.com",
   databaseURL: "https://car-parking-app-auth0-host-default-rtdb.firebaseio.com",
   projectId: "car-parking-app-auth0-host",
@@ -18,7 +18,7 @@ const firebaseConfig = {
   appId: "1:603857041110:web:f29f702dcb7147ae4bbb77",
 };
 
-// const app = initializeApp(firebaseConfig); 
+const app = initializeApp(firebaseConfig);
 
 function Form(props) {
   const [showSlot, setShowSlot] = useState(true);
@@ -52,21 +52,20 @@ function Form(props) {
 
   const app = initializeApp(firebaseConfig);
 
-  const auth = getAuth(app);
-  
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      console.log("User UID:", uid);
-    } else {
-      console.log("No user is currently signed in.");
-    }
-  });
+  // const auth = getAuth(app);
 
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     const uid = user.uid;
+  //     console.log("User UID:", uid);
+  //   } else {
+  //     console.log("No user is currently signed in.");
+  //   }
+  // });
 
   const handleSubmitFeedback = (event) => {
     event.preventDefault();
-    const customerFeedbackDb = getDatabase(app)
+    const customerFeedbackDb = getDatabase(app);
     const feedback = document.getElementById("subject").value;
     if (feedback.trim() === "") {
       alert("Please enter feedback before submitting.");
@@ -77,7 +76,10 @@ function Form(props) {
       timestamp: new Date().toString(),
     };
 
-    const feedbackRef = push(ref(customerFeedbackDb, "/Costumer Feedback Data"), feedbackData);
+    const feedbackRef = push(
+      ref(customerFeedbackDb, "/Costumer Feedback Data"),
+      feedbackData
+    );
     feedbackRef
       .then(() => {
         console.log("Feedback saved to Firebase with key:", feedbackRef.key);
@@ -87,12 +89,12 @@ function Form(props) {
         console.error("Error saving feedback to Firebase:", error);
         toast.error("Error saving feedback to Firebase");
       });
-  }
-    
+  };
+
   const handleLogout = () => {
-    navigate("/login")
-    toast.success(`${email} logout successfully.`)
-  }
+    navigate("/login");
+    toast.success(`${email} logout successfully.`);
+  };
 
   const handleShowFeedback = () => {
     setShowHistory(false);
@@ -136,21 +138,21 @@ function Form(props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("chalna start")
+        console.log("chalna start");
         const db = getDatabase(app);
-        const bookingsRef = ref(db, 'bookings');
+        const bookingsRef = ref(db, "bookings");
 
         onValue(bookingsRef, (snapshot) => {
-          console.log('dsda ')
+          console.log("dsda ");
           const data = snapshot.val();
-          
+
           if (data) {
             const bookingArray = Object.values(data);
             setBookings(bookingArray);
           }
         });
       } catch (error) {
-        console.log('Error fetching data:', error);
+        console.log("Error fetching data:", error);
       }
     };
     fetchData();
@@ -176,7 +178,7 @@ function Form(props) {
         cardDate,
         cardYear,
       };
-
+  
       const data = {
         startDate: startDate.toString(),
         endDate: endDate.toString(),
@@ -184,19 +186,23 @@ function Form(props) {
         slot: selectedSlot,
         formData: formData,
       };
-
-      if (databaseRef) {
-        const newBookingRef = push(databaseRef, data);
-        newBookingRef
-          .then((snapshot) => {
-            console.log("Data saved to Firebase with key:", snapshot.key);
-            toast.success("You Booked Slot Successfully", { autoClose: 9000 });
-          })
-          .catch((error) => {
-            console.error("Error saving data to Firebase:", error);
-            toast.error("Error saving data to Firebase");
-          });
-      }
+  
+      const db = getDatabase(app);
+  
+      const bookingsRef = ref(db, "bookings");
+  
+      const newBookingRef = push(bookingsRef, data);
+  
+      newBookingRef
+        .then((snapshot) => {
+          console.log("Data saved to Firebase with key:", snapshot.key);
+          toast.success("You booked a slot successfully", { autoClose: 9000 });
+        })
+        .catch((error) => {
+          console.error("Error saving data to Firebase:", error);
+          toast.error("Error saving data to Firebase");
+        });
+  
       setStartDate(null);
       setEndDate(null);
       setDuration(null);
@@ -216,14 +222,15 @@ function Form(props) {
       setCardCvc("");
       setCardDate("");
       setCardYear("");
-
-      props.onPayNow();
     } else {
       alert(
         "Please select a date range, a slot, and complete the form before submitting."
       );
     }
+  
+    props.onPayNow();
   };
+  
 
   return (
     <>
@@ -310,23 +317,28 @@ function Form(props) {
                   style={{ height: "200px" }}
                 ></textarea>
 
-                <input type="submit" value="Submit"onClick={handleSubmitFeedback}  />
+                <input
+                  type="submit"
+                  value="Submit"
+                  onClick={handleSubmitFeedback}
+                />
               </form>
             </div>
             <div
               className="profile_section"
-              style={{ display: showTabs === "profile" ? "block" : "none" }}>
-                <h1>profile</h1>
-                <br />
-                <div className="twos_button">
-                    <div className="book_now_abhi">
-                        <button className="button_class">Book Now</button>
-                    </div>
-                    <div className="logout_abhi" onClick={handleLogout}>
-                        <button className="logout_class">Logout</button>
-                    </div>
+              style={{ display: showTabs === "profile" ? "block" : "none" }}
+            >
+              <h1>profile</h1>
+              <br />
+              <div className="twos_button">
+                <div className="book_now_abhi">
+                  <button className="button_class">Book Now</button>
+                </div>
+                <div className="logout_abhi" onClick={handleLogout}>
+                  <button className="logout_class">Logout</button>
                 </div>
               </div>
+            </div>
             <div
               className="parent"
               style={{ display: showTabs === "bookparking" ? "block" : "none" }}
@@ -454,7 +466,7 @@ function Form(props) {
               <div className="payment_section">
                 <div className="payment">
                   <div class="container">
-                    <form>
+                    <form onSubmit={handlePayNow}>
                       <div class="row">
                         <h4>Account</h4>
                         <div class="input-group input-group-icon">
@@ -480,6 +492,13 @@ function Form(props) {
                           </div>
                         </div>
                         <div class="input-group input-group-icon">
+                          <input
+                            type="password"
+                            placeholder="Password"
+                            autoComplete="current-password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                          />
                           <input
                             type="password"
                             placeholder="Password"
@@ -530,7 +549,8 @@ function Form(props) {
                               id="gender-male"
                               type="radio"
                               name="gender"
-                              value={genderMale}
+                              value="male"
+                              checked={genderMale}
                               onChange={(e) => setGenderMale(e.target.value)}
                             />
                             <label for="gender-male">Male</label>
@@ -538,7 +558,8 @@ function Form(props) {
                               id="gender-female"
                               type="radio"
                               name="gender"
-                              value={genderFemale}
+                              value="female"
+                              checked={genderFemale}
                               onChange={(e) => setGenderFemale(e.target.value)}
                             />
                             <label for="gender-female">Female</label>
@@ -630,7 +651,10 @@ function Form(props) {
                         </div>
                       </div>
                       <div className="pay_now">
-                        <button className="pay" onClick={handlePayNow}>
+                        <button
+                          type="submit"
+                          className="pay"
+                          >
                           Pay Now
                         </button>
                       </div>
